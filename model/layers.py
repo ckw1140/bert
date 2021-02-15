@@ -151,7 +151,7 @@ class Encoder(nn.Module):
         positions = positions.expand(batch_size, sequence_length)
         positions = positions.contiguous() + 1
 
-        # inputs 에서 값이 pad_token 인 위치들에 대응되는 positions 의 위치들의 값을 0으로 바꾼다.
+        # inputs 에서 값이 pad_token 인 위치들에 대응되는 positions 의 위치들의 값을 0으로 바꿔줍니다.
         pos_mask = inputs.eq(self.config.pad_token)
         positions.masked_fill_(pos_mask, 0)
 
