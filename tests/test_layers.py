@@ -82,5 +82,6 @@ def test_encoder():
     outputs, attention_probs = encoder(inputs, segments)
 
     assert outputs.size() == (batch_size, config.sequence_length, config.hidden_dim)
+    assert len(attention_probs) == config.num_layers
     assert attention_probs[0].size() == (batch_size, config.num_heads, config.sequence_length, config.sequence_length)
 
